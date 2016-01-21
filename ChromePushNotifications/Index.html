@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Notifications API Demo</title>
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 500px;
+            margin: 2em auto;
+            padding: 0 0.5em;
+            font-size: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+        label {
+            display: block;
+        }
+
+        input[name="title"],
+        textarea {
+            width: 100%;
+        }
+
+        input[name="title"] {
+            height: 2em;
+        }
+
+        textarea {
+            height: 5em;
+        }
+
+        .buttons-wrapper {
+            text-align: center;
+        }
+
+        .button-demo {
+            padding: 0.5em;
+            margin: 1em;
+        }
+    </style>
+    <link rel="manifest" href="manifest.json">
+    <script src="ChromePushManager.js"></script>
+    <script src="//dfdbz2tdq3k01.cloudfront.net/js/2.1.0/ortc.js"></script>
+
+    <!-- THESE FILES ARE ONLY REQUIRED FOR THE CURRENT EXAMPLE -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>Web Notifications API</h1>
+    <span id="wn-unsupported" class="hidden">API not supported</span>
+    <p>
+        <div id="curl" style="padding: 15px; background-color: black; color: white;" hidden="hidden">
+        </div>
+    </p>
+    <p>
+        Your channel is: <code><span id="channel">...</span></code>
+    </p>
+    <div>
+        <label for="pushMsg">Push Message:</label>
+        <textarea id="pushMsg"></textarea>
+    </div>
+    <div>
+        <button id="sendButton" class="button-primary" onclick="javascript: send(document.getElementById('pushMsg').value);">Send me a push notification</button>
+    </div>
+    
+</body>
+</html>
